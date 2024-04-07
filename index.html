@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- css styles -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+</head>
+
+    
+<body>
+    
+    <header class="header" id="header">
+
+        
+
+        <div class="container">
+            <img src="./img/header-dc.png" alt="" class="header-dc-1">
+            <div class="header__wrapper">
+
+                <div class="header__top">
+
+                    
+
+                    
+
+                    <a href="" class="header__logo">
+                        <img src="./img/header-logo.png" alt="">
+                        СТУДИЯ&nbsp;
+                        <span>ДОМОВ
+                            <img src="./img/header-logo-dc.png" alt="">
+                        </span>
+                    </a>
+    
+                    <ul>
+                       
+                        <li>
+                            <img src="./img/wa-ico.png" alt="">
+                            <a href="">
+                                WhatsApp
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <img src="./img/call-ico.png" alt="">
+                            <a href="">
+                                Заказать звонок
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#" class="navToggler" id="navToggler">
+                                <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 18L20 18" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M4 12L20 12" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M4 6L20 6" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                ВСЕ РАЗДЕЛЫ
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="">
+                                +7(383)
+                                <span>
+                                    213-77-19
+                                </span>
+    
+                            </a>
+                            <!-- <p>
+                                <span></span>
+                                сейчас работаем
+                            </p> -->
+                        </li>
+
+                        
+    
+                    </ul>
+
+                    <button id="navToggler" class="navToggler burger-menu">
+                        <svg width="46px" height="46px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 18L20 18" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 12L20 12" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 6L20 6" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        
+                    </button>
+
+                    <p class="work-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text"></span>
+                    </p>
+                    
+
+                </div>
+
+                <div class="header__bottom">
+
+                    <nav class="header__nav" id="siteNav">
+
+                        <ul class="top">
+                            <li>
+                                <a href="">
+                                    ДОМА ИЗ БРУСА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    БАНИ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    ДАЧНЫЕ ДОМА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    БРУСОВЫЕ ДОМА
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    КАРКАСНЫЕ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    ЭКОНОМ ДОМА
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="bottom">
+                            <li>
+                                <a href="">
+                                    НАШИ РАБОТЫ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    КАК МЫ СТРОИМ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    ВИДЕО ДОМОВ И БАНЬ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    ОТЗЫВЫ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    УСЛОВИЯ ОПЛАТЫ И ПОДГОТОВКА УЧАСТКА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    СТРОИМ В КРЕДИТ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    МАТЕРИНСКИЙ КАПИТАЛ
+                                </a>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+            </div>
+            <img src="./img/header-dc-2.png" alt="" class="header-dc-2">
+
+        </div>
+
+    </header>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var toggleNavs = document.querySelectorAll(".navToggler");
+            var mainNav = document.getElementById("siteNav");
+            var headerTop = document.querySelector(".header__top");
+    
+            toggleNavs.forEach(function(toggleNav) {
+                toggleNav.addEventListener("click", function() {
+                    if (mainNav.classList.contains("visible")) {
+                        mainNav.classList.remove("visible");
+                        headerTop.classList.remove("mb-active");
+                    } else {
+                        mainNav.classList.add("visible");
+                        headerTop.classList.add("mb-active");
+                    }
+                });
+            });
+        });
+    </script>
+    
+
+    <script>
+        function updateStatusDot() {
+            const now = new Date();
+            const dayOfWeek = now.getDay();
+            const hour = now.getHours();
+            const statusDots = document.querySelectorAll('.status-dot');
+            const statusTexts = document.querySelectorAll('.status-text');
+    
+            // Проверяем, рабочий ли сейчас день
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Пн-Пт
+                if (hour >= 10 && hour < 18) {
+                    // Рабочее время
+                    statusDots.forEach(dot => {
+                        dot.style.backgroundColor = '#34b46f'; // Зеленый цвет
+                    });
+                    statusTexts.forEach(text => {
+                        text.textContent = "сейчас работаем";
+                    });
+                } else {
+                    // Вне рабочего времени
+                    statusDots.forEach(dot => {
+                        dot.style.backgroundColor = '#ff0000'; // Красный цвет
+                    });
+                    statusTexts.forEach(text => {
+                        text.textContent = "сейчас не работаем";
+                    });
+                }
+            } else if (dayOfWeek === 0 || dayOfWeek === 6) { // Сб-Вс
+                if (hour >= 10 && hour < 15) {
+                    // Рабочее время
+                    statusDots.forEach(dot => {
+                        dot.style.backgroundColor = '#34b46f'; // Зеленый цвет
+                    });
+                    statusTexts.forEach(text => {
+                        text.textContent = "сейчас работаем";
+                    });
+                } else {
+                    // Вне рабочего времени
+                    statusDots.forEach(dot => {
+                        dot.style.backgroundColor = '#ff0000'; // Красный цвет
+                    });
+                    statusTexts.forEach(text => {
+                        text.textContent = "сейчас не работаем";
+                    });
+                }
+            } else {
+                // Если это не суббота, воскресенье и не будний день, считаем, что рабочего времени нет
+                statusDots.forEach(dot => {
+                    dot.style.backgroundColor = '#ff0000'; // Красный цвет
+                });
+                statusTexts.forEach(text => {
+                    text.textContent = "не работаем";
+                });
+            }
+        }
+    
+        // Обновляем статус при загрузке страницы
+        updateStatusDot();
+    
+        // Обновляем статус каждую минуту
+        setInterval(updateStatusDot, 60000);
+    </script>
+    
+    
+    
+    
+    
+
+    
+
+    <main>
+
+        <img class="hero__bg" src="./img/hero-main-bg.png" alt="">
+
+        
+
+        <section class="hero">
+
+            <div class="container hero__container">
+
+                <div class="hero__wrapper">
+
+                    <div class="hero__info">
+
+                        <h1>
+                            <span>15 лет</span><br>
+                            строим ДОМА и БАНИ<br>
+                            в Новосибирске <img src="./img/nsk-ico.png" alt="" class="img-fluid">
+                        </h1>
+
+                        <p>
+                            из строганного и профилированного бруса
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                <img src="./img/benefits-ico-1.png" alt="">
+                                Теплые
+                            </li>
+
+                            <li>
+                                <img src="./img/benefits-ico-2.png" alt="">
+                                Экологичные
+                            </li>
+
+                            <li>
+                                <img src="./img/benefits-ico-3.png" alt="">
+                                Долговечные
+                            </li>
+
+                            <li>
+                                <img src="./img/benefits-ico-4.png" alt="">
+                                Недорогие
+                            </li>
+
+                        </ul>
+
+                        <a href="" class="cta-button pulse"> 
+                            Задать вопрос в WhatsApp
+                            
+                            <svg fill="#fff" height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                viewBox="0 0 308 308" xml:space="preserve">
+                            <g>
+                                <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
+                                    c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
+                                    c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
+                                    c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
+                                    c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
+                                    c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
+                                    c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
+                                    c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
+                                    c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
+                                    C233.168,179.508,230.845,178.393,227.904,176.981z"/>
+                                <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
+                                    c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
+                                    c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
+                                    M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
+                                    l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
+                                    c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
+                                    C276.546,215.678,222.799,268.994,156.734,268.994z"/>
+                            </g>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                    <div class="hero__img">
+                        <img src="./img/hero-item1.png" alt="" class="img-fluid">
+                        <div class="hero__badge">
+                            <p>
+                                КРЕПКИЕ И НАДЕЖНЫЕ
+                            </p>
+                        </div>
+                    </div>
+                    
+
+                    
+
+                </div>
+
+                <img src="./img/stujka-2.png" alt="" class="hero-dc-1">
+
+            </div>
+
+        </section>
+
+        <section class="info-section">
+
+            
+
+            <div class="container info__container">
+
+                <div class="info__wrapper">
+
+                    <div class="info__img">
+
+                        <img src="./img/info-bg-1.png" alt="">
+
+                    </div>
+
+                    <div class="info__text">
+                        
+                        <h2>
+                            ДОМА И БАНИ ИЗ БРУСА<br>
+                            В НОВОСИБИРСКЕ
+                        </h2>
+                        <h3>
+                            ПОД КЛЮЧ И СРУБЫ
+                        </h3>
+    
+                        <h5>
+                            Брусовые дома эконом класса, дачи, бани и загородные жилые коттеджи
+                        </h5>
+    
+                        <p>
+                            Дома и бани из бруса под ключ - выгодное вложение средств, возможность жить в собственном загородном доме, иметь очень теплую уютную баню. Все строения из бруса не нуждаются в какой-то дополнительной обработке.
+                        </p>
+    
+                        <p>
+                            Мы предлагаем заказать строительство домов из бруса по очень выгодным ценам. Для этого следует только выбрать подходящий Вам проект из имеющегося у нас каталога. Затем согласовать с нами все нюансы. Все остальное наша квалифицированная команда выполнит в установленные сроки, Вам останется лишь принять построенный дом или баньку.
+                        </p>
+
+                        <img src="./img/derevo.png" alt="" class="info-dc-1">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="services">
+
+            <div class="container services__container">
+
+                <img src="./img/decoration-1.png" alt="" class="services-dc-1">
+
+                <div class="services__wrapper">
+                    
+                    <div class="row services__row">
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-1.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        ДОМА ИЗ БРУСА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            4X5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            8X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            5X5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X12
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            9X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X6
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            7X7
+                                        </a>
+                                    </li>
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-2.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        БАНИ ИЗ БРУСА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            4X4
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X6
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            5X5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X4
+                                        </a>
+                                    </li>
+                                    
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-3.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        ДАЧНЫЕ ДОМА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            4X5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            9X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X6
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            7X7
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            10X10
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            8X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            12X10
+                                        </a>
+                                    </li>
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-4.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        БРУСОВЫЕ ДОМА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            6X8
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            9X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            13X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            7X9
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            10X10
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            8X10
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            12X8
+                                        </a>
+                                    </li>
+                                    
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-5.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        КАРКАСНЫЕ ДОМА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            4X4
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            5X6
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            4X5
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X6
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            5X5
+                                        </a>
+                                    </li>
+                                    
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="service__card">
+
+                                <a href="">
+                                    <img src="./img/service-6.png" alt="">
+                                </a>
+
+                                <a href="">
+                                    <h3>
+                                        ЭКОНОМ ДОМА
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/>
+                                        </svg>
+                                    </h3>
+                                </a>
+
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            2X3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            4X4
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            3X3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            6X4
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            3X4
+                                        </a>
+                                    </li>
+                                    
+                                   
+                                    
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+
+            <img src="./img/decoration-2.png" alt="" class="services-dc-2">
+
+        </section>
+
+        <section class="service-tile">
+
+            <div class="container service-tile__container">
+
+                <div class="service-tile__wrapper">
+
+                    <div class="row service-tile__row top">
+
+                        <div class="col-md-4">
+                            <div href="" class="service-tile__card">
+
+                                <a href="">
+                                    <img src="./img/service-tile-1.png" alt="">
+
+                                <div class="service-tile__info">
+
+                                    <h3>
+                                        <span>Черепица</span><br>
+                                        <span>Ондулин</span>
+                                        
+                                    </h3>
+
+                                    <p>
+                                        по цене<br>
+                                        стандартного<br>
+                                        ондулин
+                                    </p>
+
+                                    
+                                    
+
+                                </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div href="" class="service-tile__card secondary">
+
+                                <a href="">
+                                    <img src="./img/service-tile-2.png" alt="">
+
+                                <div class="service-tile__info">
+
+                                    <h3>
+                                        <span>Свайный фундамент</span><br>
+                                        <span>от « Главфундамент »</span>
+                                        
+                                    </h3>
+
+                                    <p>
+                                        многолетний опыт,<br>
+                                        качественный результат<br>
+                                        
+                                    </p>
+
+                                    
+                                    
+
+                                </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div class="row service-tile__row bottom">
+
+                        <div class="col-md-7">
+                            <div href="" class="service-tile__card secondary">
+
+                                <a href="">
+                                    <img src="./img/service-tile-3.png" alt="">
+
+                                <div class="service-tile__info">
+
+                                    <h3>
+                                        <span>Условия оплаты</span><br>
+                                        <span>и подготовка участка</span>
+                                        
+                                    </h3>
+
+                                    <p>
+                                        полезная информация<br>
+                                        для наших заказчиков<br>
+                                    </p>
+
+                                    
+                                    
+
+                                </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div href="" class="service-tile__card secondary">
+
+                                <a href="">
+                                    <img src="./img/service-tile-4.png" alt="">
+
+                                <div class="service-tile__info">
+
+                                    <h3>
+                                        <span>Строим</span><br>
+                                        <span>в кредит</span>
+                                        
+                                    </h3>
+
+                                    <p>
+                                        условия<br>
+                                        кредитования<br>
+                                        
+                                    </p>
+
+                                    
+                                    
+
+                                </div>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info-section">
+
+            <img src="./img/decoration-3.png" alt="" class="info-dc-2">
+
+            <div class="container info__container">
+
+                <div class="info__wrapper">
+
+                    
+
+                    <div class="info__text marked">
+                        
+                        <h2>
+                            <img src="./img/flag.png" alt="" class="flag">
+                            ЛУЧШЕЕ<br>
+                            СООТНОШЕНИЕ ЦЕНЫ И КАЧЕТСВА
+                        </h2>
+
+                        <!-- <h3>
+                            
+                        </h3> -->
+    
+                        <h5>
+                            Гарантируем качество и надежность<br>
+                            всех построенных нами объектов
+                        </h5>
+    
+                        <p>
+                            Современные технологии, высокая квалификация специалистов и качественные строительно-отделочные материалы позволяют нам создавать красивые и долговечные деревянные дачные дома и бани. При этом наши цены на дома и дачи из бруса, так же как и цены на бани всегда разумны и конкурентоспособны.
+                        </p>
+    
+                        <p>
+                            Наша компания предлагает множество вариантов деревянных домов и бань на любой вкус и достаток. Уверены, что среди имеющихся у нас типовых проектов вы легко найдете тот, который подойдет именно для Вашего участка. В любой из выбранных Вами проектов мы с готовностью внесем коррективы, основанные на ваших пожеланиях. 
+                        </p>
+
+                    </div>
+
+                    <div class="info__img right">
+
+                        <img src="./img/info-img-2.png" alt="">
+
+                        <h3>
+                            <span>3 года</span> гарантии 
+                            <img src="./img/shield-ico.png" alt="">
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="divider">
+
+            <div class="container divider__container">
+
+                <img src="./img/divider-2.png" alt="" class="img-fluid w-100">
+
+            </div>
+
+        </section>
+
+        <section class="works">
+
+        
+            <img src="./img/strujka-4.png" alt="">
+            
+            <div class="container works__container">
+                
+
+                <div class="works__wrapper">
+
+                    <div class="works__tiles">
+                        <div class="gallery-item">
+                            <figure>
+                                <a href="./img/work-1.png" data-fancybox="gallery">
+                                    <img src="./img/work-1.png" alt="" />
+                                </a>
+                            </figure>
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <figure>
+                                <a href="./img/work-2.png" data-fancybox="gallery">
+                                    <img src="./img/work-2.png" alt="" />
+                                </a>
+                            </figure>
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <figure>
+                                <a href="./img/work-3.png" data-fancybox="gallery">
+                                    <img src="./img/work-3.png" alt="" />
+                                </a>
+                            </figure>
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <figure>
+                                <a href="./img/work-4.png" data-fancybox="gallery">
+                                    <img src="./img/work-4.png" alt="" />
+                                </a>
+                            </figure>
+                        </div>
+                    
+                        <div class="gallery-item">
+                            <figure>
+                                <figcaption>
+                                    <a href="">
+                                       СМОТРЕТЬ ВСЕ ФОТОГРАФИИ
+                                    </a>
+                                    <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                                    </svg>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <div class="works__info">
+                        
+                        <h2>
+                            ФОТОГРАФИИ<br>
+                            ПОСТРОЕННЫХ<br>
+                            ДОМОВ И БАНЬ<br>
+                            
+                            
+                        </h2>
+
+                        <div class="works__last">
+
+                            <h3>
+                                Поэтапная постройка<br>
+                                дом из бруса 7х8 метров
+                            </h3>
+
+                            <div>
+                                <a href="">
+                                    КАК МЫ СТРОИМ
+                                    
+                                </a>
+                                <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                                </svg>
+                            </div>
+
+                            <img src="./img/work-last.png" alt="" class="img-fluid ">
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="map">
+
+            <div class="container map__container">
+
+                <h2>
+                    ЗА 15 ЛЕТ ВОЗВЕЛИ<br>
+                    БОЛЕЕ 500 ДОМОВ И БАНЬ
+                    <img src="./img/map-dc.png" alt="">
+
+                    <span>
+
+                    </span>
+                    
+                </h2>
+
+                <!-- <h3>
+                    
+                </h3> -->
+
+                <h5>
+                    Карта построенных объектов
+                </h5>
+
+                <div class="map__wrapper">
+
+                    <div class="map__img">
+                        <img src="./img/build-map.png" alt="">
+                    </div>
+
+                    <div class="map__info">
+
+                        <ul>
+                            <li>
+                                <img src="./img/map-red.png" alt="">
+                                <p>
+                                    Дома из бруса
+                                </p>
+                            </li>
+                            <li>
+                                <img src="./img/map-green.png" alt="">
+                                <p>
+                                    Бани
+                                </p>
+                            </li>
+                            <li>
+                                <img src="./img/map-blue.png" alt="">
+                                <p>
+                                   Другие строительные объекты -
+                                   дачные дома, беседки и т.д.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <p>
+                            * представлена только часть<br>
+                            построенных домов и бань
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="reviews-videos">
+
+            <div class="container reviews-videos__container">
+
+                <div class="reviews-videos__wrapper">
+
+                    <div class="reviews-videos__info">
+
+                        <div class="video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/KDsc3ZVzm_Y?si=50TqAX5rgJVtnRa7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div class="review">
+
+                            <img src="./img/bg-ef-3.png" alt="">
+
+                            <h2>
+                                ОТЗЫВЫ<br>
+                                О СТРОИТЕЛЬСТВЕ
+                            </h2>
+
+                            <p>
+                                Каждый построенный дом, как и каждый его владелец -<br>
+                                самый важный элемент в работе.
+                            </p>
+                            <p>
+                                Вы помогаете нам делать дома и бани еще лучше!
+                            </p>
+
+
+
+                            <div class="link">
+                                <a href="">
+                                    СМОТРЕТЬ ВСЕ ОТЗЫВЫ
+                                    
+                                </a>
+        
+                                <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <div class="flamp">
+                            <img src="./img/flamp-rev.png" alt="">
+
+                            <div>
+                                
+                                <p>
+                                    5 звезд на флампе!
+                                </p>
+                                    <div class="link">
+                                        <a href="">
+                                            ЧИТАТЬ ОТЗЫВЫ НА FLAMP 
+                                            
+                                        </a>
+                
+                                        <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                                        </svg>
+                                    </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="yt">
+                            <div class="link">
+                                <a href="">
+                                    Наш YouTube-канал
+                                    
+                                </a>
+        
+                                <img src="./img/yt.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="reviews-videos__block">
+
+                        <h2>
+                            ВИДЕО<br>
+                            ДОМОВ И БАНЬ
+                        </h2>
+
+                        <p>
+                            Видео-туры как внутри, так и снаружи.
+                        </p>
+
+                        <p>
+                            Отличная возможность ознакомится с построенными<br>
+                            объектами. Лучше, как говориться, один раз увидеть.
+                        </p>
+
+                        <div class="link">
+                            <a href="">
+                                СМОТРЕТЬ ВСЕ ВИДЕО
+                                
+                            </a>
+    
+                            <svg fill="#333" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+                            </svg>
+                        </div>
+                        
+
+                        <div class="video">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/d5GxrSCABQ0?si=o4z5R0MKw9IDjv2a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        </div>
+
+                        <div class="video">
+
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ySpI9m32nvM?si=9Z_pHdSRM8IhSwiO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info-section">
+
+            
+
+            <div class="container info__container">
+
+                <h2>
+                    ПОЧЕМУ ДОМА И БАНИ ИЗ БРУСА?
+                    <span>
+
+                    </span>
+                    <img src="./img/bg-ef-2.png" alt="">
+                </h2>
+
+                <!-- <h3>
+                    
+                </h3> -->
+
+                <h5>
+                    Преимущества очевидны
+                </h5>
+
+                <div class="info__wrapper secondary row">
+
+                    
+
+                    <div class="info__text col-md-4">
+                        
+                        
+    
+                        <p>
+                            Комнаты домов и бань из бруса наполнены ароматом, а теплый "солнечный" цвет жилых помещений создает в домах и банях неповторимый психологический климат, что благотворно влияет на настроение и самочувствие, успокаивает нервную систему. В таких домах и банях сразу ощущается спокойствие и уют.
+                        </p>
+    
+                        <p>
+                            Древесина не оказывает никакого вредного воздействия на организм. Напротив, стены из бруса заряжают положительной энергией, обладают особым духом и целительным воздействием.
+                        </p>
+
+                    </div>
+
+                    <div class="info__text col-md-4">
+                        
+                        
+    
+                        <p>
+                            Дома из бруса не коробятся от влаги, почти не имеют усадки, не растрескиваются, не болеют, ими не интересуются насекомые и грызуны.
+                        </p>
+    
+                        <p>
+                            Поверхность стен не нуждается в отделке — разве что в тонировании, которое подчеркнет красоту дерева: сосны, ели или лиственницы.
+                        </p>
+                        
+                        <p>
+                            В деревянных домах всегда прекрасный воздухообмен - дом "дышит". Такое качество создает прекрасные условия для сохранения и укрепления здоровья, прекрасно подходит для детей. Качественный деревянный дом – это здоровый дом
+                        </p>
+
+                    </div>
+
+                    <div class="info__text col-md-4">
+                        
+                        
+    
+                        <p>
+                            Дома из бруса, благодаря новейшим технологиям обработки натуральных материалов, приобретают дополнительную прочность, устойчивость к возгоранию и гниению, не теряя своих природных качеств. Поэтому они долговечны и, как следствие, экономически выгодны.
+                        </p>
+    
+                        <p>
+                            Дома и бани из бруса ценятся за их самобытность и красоту, экологический стиль очень моден и актуален в наше время.
+                        </p>
+
+                    </div>
+
+                   
+
+                </div>
+
+            </div>
+
+            <img src="./img/decoration-4.png" alt="" class="info-dc-3">
+
+        </section>
+
+        <section class="contacts">
+
+            <div class="container contacts__container">
+
+                <h2>
+                    КОНТАКТНАЯ ИНФОРМАЦИЯ
+                    <span>
+
+                    </span>
+                </h2>
+
+                <div class="contacts__wrapper">
+
+                    <div class="contacts__text">
+                            <p>
+                                г.Новосибирск, ул. проспект Карла Маркса<br>30, офис 402 (4 этаж)
+                            </p>
+            
+                            
+                            <div class="contacts__status">
+                                
+                                
+
+                                <a href="" class="telephone">
+                                    <img src="./img/tel-ico.png" alt="">
+                                    +7(383)
+                                    <span>
+                                        213-77-19
+                                    </span>
+            
+                                </a>
+                                <p class="work-status">
+                                    <span></span>
+                                    сейчас работаем
+                                </p>
+                            </div>
+            
+                            <div class="contacts__links">
+                                <a href="">
+                                    ЗАКАЗАТЬ ЗВОНОК
+                                </a>
+                                <a href="">
+                                    НАПИШИТЕ НАМ
+                                </a>
+                                <a href="mailto:studiya.domov@mail.ru">
+                                    studiya.domov@mail.ru
+                                </a>
+                            </div>
+            
+                            <a href="" class="cta-button pulse"> 
+                                Задать вопрос в WhatsApp
+                                
+                                <svg fill="#fff" height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 308" xml:space="preserve">
+                                <g>
+                                    <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
+                                        c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
+                                        c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
+                                        c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
+                                        c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
+                                        c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
+                                        c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
+                                        c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
+                                        c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
+                                        C233.168,179.508,230.845,178.393,227.904,176.981z"></path>
+                                    <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
+                                        c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
+                                        c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
+                                        M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
+                                        l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
+                                        c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
+                                        C276.546,215.678,222.799,268.994,156.734,268.994z"></path>
+                                </g>
+                                </svg>
+                            </a>
+            
+            
+                            <div class="contacts__regime">
+            
+                                <img src="./img/time-ico.png" alt="">
+            
+                                <div class="text">
+                                    <p>
+                                        <span>Пн-Пт 10:00 - 18:00 </span>
+                                    </p>
+                                    <p>
+                                        <span>Сб-Вс 10:00 - 15:00</span> по предвартельному звонку!
+                                    </p>
+                
+                                    <p>
+                                        Перед визитом в офис, пожалуйста, позвоните нам,<br>
+                                        согласуем удобное для Вас время посещения
+                                    </p>
+                
+                                    <p>
+                                        <span>Прием звонков с 9:00 до 21:00</span>
+                                    </p>
+                                </div>
+            
+                            </div>
+                    </div>
+
+                    <div class="contacts__map">
+
+                        <img src="./img/contacts-map.png" alt="" class="img-fluid w-100">
+
+                        <div class="contacts__links">
+                            <a href="">
+                                СМОТРЕТЬ НА ЯНДЕКС-КАРТАХ
+                            </a>
+                            <a href="">
+                                НА GOOGLE-КАРТАХ
+                            </a>
+                            <a href="">
+                                В 2ГИС
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+                
+
+            </div>
+
+        </section>
+
+        <section class="divider">
+
+            <div class="container divider__container">
+
+                <img src="./img/divider.png" alt="" class="img-fluid w-100">
+
+            </div>
+
+        </section>
+
+        
+
+    </main>
+
+    
+
+    <footer class="footer" id="footer">
+
+        <div class="container">
+
+            <div class="footer__wrapper">
+
+               <h2>
+                Строим круглый год<br>
+                уютныее теплые дома и бани из бруса<br>
+                по низким ценам
+               </h2>
+
+                <div class="footer__bottom">
+
+                    <nav class="footer__nav">
+
+                        <ul class="top">
+                            <li>
+                                <a href="">
+                                    ДОМА ИЗ БРУСА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    БАНИ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    ДАЧНЫЕ ДОМА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    БРУСОВЫЕ ДОМА
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    КАРКАСНЫЕ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    ЭКОНОМ ДОМА
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="bottom">
+                            <li>
+                                <a href="">
+                                    НАШИ РАБОТЫ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    КАК МЫ СТРОИМ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    ВИДЕО ДОМОВ И БАНЬ
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    ОТЗЫВЫ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    УСЛОВИЯ ОПЛАТЫ И ПОДГОТОВКА УЧАСТКА
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="">
+                                    СТРОИМ В КРЕДИТ
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    МАТЕРИНСКИЙ КАПИТАЛ
+                                </a>
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+                <div class="footer__tip">
+                    <p>
+                        Cайт не является публичной офертой. Строительная компания «Студия Домов» оставляет за собой<br></bvr>право изменять цены и условия специальных предложений без предварительного уведомления.
+                    </p>
+                    <a href="">
+                        ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <img src="./img/footer-bg-1.png" alt="" class="footer__img">
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<script>
+    // скрипт плавного появления секций
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+  
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated'); // Добавляем класс 'animated' при видимости
+            observer.unobserve(entry.target);
+        }
+        });
+    }, { threshold: 0.05 });
+  
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+  });
+  // скрипт плавного появления секций
+  document.addEventListener('DOMContentLoaded', () => {
+  const articles = document.querySelectorAll('article');
+  
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          entry.target.classList.add('animated'); // Добавляем класс 'animated' при видимости
+          observer.unobserve(entry.target);
+      }
+      });
+  }, { threshold: 0.9 });
+  
+  articles.forEach(article => {
+      observer.observe(article);
+  });
+  });
+</script>
+
+</body>
+
+</html>

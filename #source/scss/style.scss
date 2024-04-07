@@ -1,0 +1,2200 @@
+@import "fonts.scss";
+@import "normalize.scss";
+@import "modules/variables.scss";
+@import "modules/custom.scss";
+@import "modules/animation.scss";
+
+
+// миксины
+@mixin sectionMargin {
+    margin-bottom: 180px;
+    @media (max-width:1660px) {
+        margin-bottom: 160px;
+    }
+    @media (max-width:1440px) {
+        margin-bottom: 140px;
+    }
+    @media (max-width:1280px) {
+        margin-bottom: 120px;
+    }
+    @media (max-width:991px) {
+      margin-bottom: 100px;
+    }
+    @media (max-width:767px) {
+      margin-bottom: 80px;
+    }
+    @media (max-width:567px) {
+      margin-bottom: 60px;
+    }
+    @media (max-width:467px) {
+      margin-bottom: 50px;
+    }
+
+  
+}
+// Применение миксина к классам с подстрокой "__container"
+[class*="__container"] {
+    @include sectionMargin; 
+}
+
+// стили плавного появления секций  
+section {
+    opacity: 0; /* Изначально делаем все секции невидимыми */
+    visibility: hidden !important;
+    transition: opacity 1s ease, visibility, transform .5s ease; /* Добавляем плавные переходы для анимации */
+    transform: translateY(75px);
+}
+  
+section.visible, section.animated {
+    opacity: 1; /* При добавлении класса 'visible' делаем секцию видимой */
+    visibility: visible !important;
+    transition: opacity 1s ease, visibility 2s, transform .5s ease;
+    transform: translateY(0px);
+}
+
+
+
+//стили скролбара
+::-webkit-scrollbar {
+
+	width: 6px;
+	background-color: #F5F5F5;
+
+    &-thumb {
+    
+        border-radius: 12px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #34b46f;
+        
+    }
+
+    &-track {
+    
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+}
+
+
+
+html {
+
+    overflow-x: hidden;
+
+    @-moz-document url-prefix() {
+        transform: scale(0.8);
+        transform-origin: left top;
+        width: calc(100% / 0.8);
+        height: calc(100% / 0.8);
+    }
+}
+
+@media (max-width:1680px) and (min-width:567px){
+    html {
+        zoom: .8;
+        
+    }
+}
+
+@media (max-width:567px) {
+    html {
+        zoom: .95;
+    }
+}
+
+.video {
+    iframe {
+        width: 100%;
+    }
+}
+
+
+// header styles
+@import "modules/header";
+
+
+
+// типографика
+h1 {
+    font-family: 'Century Gothic';
+    font-weight: bold !important;
+
+    span {
+        font-weight: normal;
+    }
+}
+
+
+
+
+
+
+
+
+// ui элементы
+
+.cta-button {
+    padding: 12px 24px;
+    font-family: 'Century Gothic';
+    font-size: 24px;
+
+    background-color: #2eb446;
+    border: 3px solid #2eb446;
+    border-radius: 24px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    width: fit-content;
+
+    svg {
+        transition: .2s ease;
+    }
+
+    &:hover {
+        transition: .2s ease;
+        color: #2eb446;
+        background-color: transparent;
+
+        & > svg {
+            fill: #2eb446;
+            transition: .2s ease;
+        }
+        
+
+    }
+
+    @media (max-width:1440px) {
+        font-size: 18px;
+        padding: 10px 18px;
+        
+    }
+    @media (max-width:767px) {
+        margin: 0 auto;
+        justify-content: center;
+        width: 100%;
+        
+    }
+}
+
+// .pulse {
+//   animation: pulse 1s infinite;
+//   box-shadow: 0 0 0 2em transparent;
+// }
+
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #2eb446; }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+// hero секция сайта
+.hero {
+    
+    
+
+    &__bg {
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+
+        z-index: -5;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        @media (max-width:767px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        
+    }
+
+    // декоративные элементы
+    &-dc {
+        &-1 {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+
+    &__info {
+        position: relative;
+        @media (max-width:767px) {
+            width: 100%;
+        }
+
+        ul {
+           
+
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            max-width: 40%;
+
+            list-style: none;
+
+            color: #e2cdb8;
+            font-weight: bold;
+            font-size: 32px;
+            font-family: 'Century Gothic';
+
+            margin-bottom: 3rem;
+            padding: 0;
+
+
+            @media  (max-width:1440px) {
+                font-size: 24px;
+            }
+            @media (max-width:1199px) {
+                font-size: 22px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+
+            @media (max-width:467px) {
+                font-size: 18px;
+            }
+            @media (max-width:390px) {
+                font-size: 16px;
+            }
+
+            li {
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:nth-child(3) {
+                    margin-right: 24px;
+                }
+
+                &:nth-child(4) {
+                    margin-left: 24px;
+                }
+
+                img {
+                    padding-right: 18px;
+                }
+            }
+
+
+        }
+
+        h1 {
+            position: relative;
+            margin-bottom: 1rem;
+            white-space: nowrap;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-image: url(../img/bg-ef-1.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                
+                width: 100px;
+                height: 70px;
+
+                top: -60px;
+                left: 160px;
+
+                @media (max-width:991px) {
+                    width: 70px;
+                    height: 50px;
+                    top: -18px;
+                    left: 140px;
+                }
+            }
+
+            & > br:last-child{
+                display: none;
+            }
+        }
+
+        p {
+            margin-bottom: 2rem;
+            font-size: 18px;
+            font-family: 'Century Gothic';
+            font-weight: normal;
+        }
+    }
+
+    &__img {
+        position: relative;
+        & > .hero__badge {
+            position: absolute;
+            right: 5%;
+            top: 25%;
+            border: 4px solid #ebe1d7;
+        
+            & > p {
+                
+                color: #333;
+                font-family: 'Century Gothic';
+                font-weight: bold;
+                font-size: 18px;
+                padding: 4px 12px;
+                background-color: #ebe1d7;
+                margin: 4px;
+                
+        
+            }
+        }
+
+        img {
+            width: 100%;
+
+            z-index: -5;
+            position: relative;
+
+            @media (max-width:991px) {
+                
+            }
+            @media (max-width:767px) {
+                
+                
+                top: -50px;
+
+            }
+
+        }
+        
+        
+    }
+}   
+
+
+
+// info секция сайта
+.info {
+    overflow-x: hidden;
+
+    &__container {
+        // @media (max-width:1920px) {
+        //     margin-left: 0 !important;
+        //     padding-left: 0 !important;
+        // }
+        // @media (max-width:1920px) {
+        //     padding-right: calc(var(--bs-gutter-x)* 0.5) !important;
+        //     padding-left: calc(var(--bs-gutter-x)* 0.5) !important;
+        // }
+
+        h2 {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 1 rem;
+
+            font-family: "Century Gothic";
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+            @media (max-width:1440px) {
+                font-size: 36px;
+            }
+            @media (max-width:1280px) {
+                font-size: 32px;
+            }
+            @media (max-width:991px) {
+                font-size: 26px;
+            }
+
+            span {
+                display: block;
+                width: 33%;
+                height: 1px;
+                background-color: #333;
+
+                @media (max-width:1199px) {
+                    display: none;
+                }
+            }
+
+            img {
+                @media (max-width:767px) {
+                    width: 100px;
+                }
+            }
+        }
+        h3 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 34px;
+        
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+        }
+
+        h5 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 24px;
+
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 22px;
+            }
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+            @media (max-width:991px) {
+                font-size: 18px;
+            }
+        }
+
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        @media (max-width:567px) {
+            display: flex;
+            gap: 2rem;
+            flex-direction: column-reverse;
+        }
+
+
+        &.secondary {
+            gap: 0;
+
+            & > .col-md-4 {
+                &:first-child {
+                    
+                    padding-left: calc(var(--bs-gutter-x)* 0.5);
+                }
+                &:last-child {
+                    padding-right: calc(var(--bs-gutter-x)* 0.5);
+                }
+
+                @media (max-width:1199px) {
+                    padding-left: calc(var(--bs-gutter-x)* 0.5);
+                    padding-right: calc(var(--bs-gutter-x)* 0.5);
+                }
+            }
+        }
+    }
+
+    // декоративные элементы
+    &-dc {
+        &-1 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -5;
+
+            @media (max-width:991px) {
+                opacity: .3;
+            }
+        }
+        &-2 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            @media (max-width:1660px) {
+                opacity: .3;
+            }
+        }
+
+        &-3 {
+            position: absolute;
+            right: 0;
+            bottom: -100px;
+            z-index: 5;
+            @media (max-width:1919px) {
+                width: 200px;
+                height: 280px;
+                bottom: -155px;
+            }
+            @media (max-width:1440px) {
+                width: 150px;
+                height: 220px;
+            }
+            @media (max-width:1199px) {
+                width: 120px;
+                height: 150px;
+            }
+
+            @media (max-width:430px) {
+                width: 90px;
+                height: 120px;
+                bottom: -50px;
+            }
+        }
+    }
+    
+
+    &__img {
+        width: 50%;
+
+        
+        position: relative;
+
+        @media (max-width:567px) {
+            width: 100%;
+        }
+
+        & > img {
+            height: 100%;
+            position: relative;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        & > h3 {
+            
+            display: flex;
+            align-items: center;
+
+            text-transform: uppercase;
+            
+            z-index: 5;
+
+            margin-top: 1rem;
+            margin-left: 1rem;
+
+            @media (max-width:567px) {
+                justify-content: center;                                
+            }
+            
+            
+
+            & > span {
+                color: #ff4266;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-right: 0.5rem;
+                font-style: italic;
+            }
+
+            & > img {
+                margin-left: .5rem;
+            }
+        }
+
+        /* Добавляем псевдоэлемент для создания градиента */
+        
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,1) 2%, rgba(255,255,255,0) 25%);
+            pointer-events: none; /* Это важно, чтобы клики проходили через псевдоэлемент */
+            z-index: 5;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 75%, rgba(255,255,255,1) 99%);
+            pointer-events: none; /* Это важно, чтобы клики проходили через псевдоэлемент */
+            z-index: 5;
+        }
+
+        &.right {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 75%, rgba(255,255,255,1) 99%);
+                pointer-events: none; /* Это важно, чтобы клики проходили через псевдоэлемент */
+            }
+        }
+    }
+    &__text {
+        width: 50%;
+        position: relative;
+
+        @media (max-width:567px) {
+            width: 100%;
+        }
+
+        &.marked > h2 {
+            position: relative;
+                & > .flag {
+                    position: absolute;
+                    top: 12px;
+                    left: -25px;
+                    max-width: 15px;
+                }
+        }
+
+        h2 {
+            font-family: "Century Gothic";
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+            @media (max-width:1440px) {
+                font-size: 36px;
+            }
+            @media (max-width:1280px) {
+                font-size: 32px;
+            }
+            @media (max-width:991px) {
+                font-size: 26px;
+            }
+        }
+        h3 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 34px;
+        
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+        }
+
+        h5 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 24px;
+
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 22px;
+            }
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+            @media (max-width:991px) {
+                font-size: 18px;
+            }
+        }
+
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+
+
+// services секция
+.services {
+    position: relative;
+
+    &__container {
+        margin-bottom: 200px;
+        position: relative;
+    }
+    &__wrapper {
+        
+    }
+
+    // декоративные элементы
+    &-dc {
+        &-1 {
+            position: absolute;
+            left: -75px;
+            top: -50px;
+            z-index: 1;
+
+            @media (max-width:1820px) {
+                left: 0px;
+                top: -100px;
+            }
+            @media (max-width:1440px) {
+                width: 80px;
+                height: 60px;
+            }
+            
+        }
+
+        &-2 {
+            position: absolute;
+
+            
+            right: 0;
+            bottom: -190px;
+
+            @media (max-width:1440px) {
+                width: 120px;
+                height: 180px;
+            }
+            @media (max-width:991px) {
+                width: 100px;
+                height: 150px;
+            }
+            @media (max-width:767px) {
+                width: 75px;
+                height: 120px;
+            }
+        }
+    }
+
+    &__row {
+        row-gap: 8rem;
+
+        @media (max-width:767px) {
+            row-gap: 4rem;
+        }
+
+        .col-md-4 {
+            @media (max-width:767px) {
+                width: 50%;
+            }
+            @media (max-width:467px) {
+                width: 100%;
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+// стили карточки услуг
+.service {
+    &__card {
+        position: relative;
+
+        transition: .2s ease;
+
+        &:hover {
+            &::before {
+                transition: .2s ease;
+                transform: scale(1.05);
+            }
+            & > a > img {
+                transition: .275s ease;
+                transform: scale(1.05);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -5;
+            background-color: #ead5bf;
+            height: 55%;
+            width: 95%;
+            display: block;
+
+            top: -15px;
+            left: -15px;
+
+            transition: .2s ease;
+
+            @media (max-width:991px) {
+                left: -10px;
+            }
+        }
+
+        img {
+            width: 100%;
+            margin-bottom: 1rem;
+
+            transition: .2s ease;
+            
+        }
+
+        & > a {
+            text-decoration: none;
+            h3 {
+                text-decoration: none;
+                width: fit-content;
+                font-family: 'Century Gothic';
+                font-size: 30px;
+                color: #333;
+                padding-bottom: 1px;
+                border-bottom: 2px solid #333;
+
+                margin-bottom: 2rem;
+
+                padding: 4px;
+
+                &:hover {
+                    transition: .2s ease;
+                    background-color: #ead5bf;
+                    
+                }
+
+                @media (max-width:1440px) {
+                    font-size: 28px;
+                }
+                @media (max-width:1280px) {
+                    font-size: 24px;
+                }
+                @media (max-width:991px) {
+                    font-size: 20px;
+                }
+                @media (max-width:567px) {
+                    font-size: 18px;
+                }
+                
+                svg {
+                    @media (max-width:1440px) {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr;
+
+            gap: 4px;
+            row-gap: .5rem;
+            
+            li {
+                width: fit-content;
+                a {
+                    text-decoration: none;
+                    font-family: 'Century Gothic';
+                    font-size: 28px;
+                    color: #333;
+                    padding-bottom: 1px;
+                    border-bottom: 2px solid #333;
+
+                    transition: .2s ease;
+
+                    padding: 4px;
+
+                    &:hover {
+                        transition: .2s ease;
+                        background-color: #ead5bf;
+                        
+                    }
+
+                    @media (max-width:1440px) {
+                        font-size: 24px;
+                    }
+                    @media (max-width:1280px) {
+                        font-size: 22px;
+                    }
+                    @media (max-width:991px) {
+                        font-size: 18px;
+                    }
+                    @media (max-width:767px) {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+// service-tile
+.service-tile {
+
+    &__container {
+
+    }
+
+    &__row {
+        padding-top: calc(var(--bs-gutter-x)* 1.25);
+        padding-bottom: calc(var(--bs-gutter-x)* 1.25);
+
+        @media (max-width:1440px) {  
+            padding-top: calc(var(--bs-gutter-x)* .85);
+            padding-bottom: calc(var(--bs-gutter-x)* .85);
+            
+        }
+
+        &.top {
+
+            display: flex;
+            
+
+            @media (max-width:767px) {
+                gap: 24px;
+                padding-bottom: 0;
+            }
+
+            & > .col-md-4 {
+                @media (max-width:1199px) {
+                    width: 41.66666667%;
+                }
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+                
+            }
+            & > .col-md-8 {
+                @media (max-width:1199px) {
+                    width: 58.33333333%;
+                }
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+            }
+        }
+        &.bottom {
+
+            @media (max-width: 767px) {
+                gap: 24px;
+                padding-bottom: 0;
+                
+                }
+
+            &>.col-md-5 {
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+            }
+            &>.col-md-7 {
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__card {
+        background-color: #efe4d9;
+
+        position: relative;
+
+        transition: .2s ease;
+
+        height: 100%;
+
+        &:hover {
+            transition: .2s ease;
+            transform: scale(1.0625);
+        }
+
+        &::after {
+            content: url("data:image/svg+xml;utf8,<svg fill='%2380807d' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z'/></svg>");
+            position: absolute;
+            
+            width: 32px;
+            height: 32px;
+
+            right: 24px;
+            bottom: 24px;
+
+            @media (max-width:567px) {
+                right: 12px;
+                bottom: 12px;
+            }
+
+        }
+    
+        a {
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+
+            padding: 1.5rem 1.5rem 3rem;
+            height: 300px;
+
+                @media (max-width:1440px) {
+                    height: 100%;
+                }
+
+                @media (max-width:1199px) {
+                    justify-content: unset;
+                    gap: 1rem;
+                }
+
+                @media (max-width:991px) {
+                    padding: 1rem;
+                    height: 230px;
+                    
+                }
+                @media (max-width:767px) {
+                    height: fit-content;
+                    padding: .5rem;
+                }
+                
+                @media (max-width:390px) {
+                    padding: .5rem;
+                }
+                @media (max-width:375px) {
+                    flex-direction: column;
+                }
+
+            img {
+                @media (max-width:1440px) {
+                    object-fit: contain;
+                    width: 200px;
+                    height: 200px;
+                }
+                @media (max-width:1199px) {
+                    object-fit: contain;
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+        }
+
+        &.secondary {
+
+            height: 100%;
+
+            a {
+                justify-content: flex-start;
+                gap: 2rem;
+
+                @media (max-width:991px) {
+                    gap: 1rem;
+                }
+                @media (max-width:467px) {
+                    gap: .5rem;
+                }
+
+                img {
+                    @media (max-width:1199px) {
+                        object-fit: contain;
+                        width: 200px;
+                    }
+                    @media (max-width:991px) {
+                        object-fit: contain;
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+
+                svg {
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        h3 {
+            text-decoration: none;
+            width: fit-content;
+            font-family: 'Century Gothic';
+            font-size: 30px;
+            color: #333;
+            padding-bottom: 1px;
+            
+
+            margin-bottom: 2rem;
+
+            padding: 4px;
+
+            span {
+                border-bottom: 2px solid #333;
+            }
+            
+
+            &:hover {
+                transition: .2s ease;
+                
+                
+            }
+
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+            @media (max-width:567px) {
+                font-size: 18px;
+            }
+
+
+            @media (max-width:375px) {
+                & > br {
+                    display: none;
+                }
+            }
+            
+
+        }
+
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+            color: #333;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:375px) {
+                & > br {
+                    display: none;
+                }
+            }
+        }
+
+        svg {
+            position: absolute;
+
+            right: 0;
+            bottom: -40px;
+        }
+    }
+}
+
+
+
+
+
+
+// секция с видео на главной
+.reviews-videos {
+    h2 {
+        font-family: "Century Gothic";
+        font-weight: bold;
+        font-size: 42px;
+        color: #333;
+        @media (max-width:1440px) {
+            font-size: 36px;
+        }
+        @media (max-width:1280px) {
+            font-size: 32px;
+        }
+        @media (max-width:991px) {
+            font-size: 26px;
+        }
+    }
+    h3 {
+        font-family: "Century Gothic";
+        font-weight: normal;
+        font-size: 34px;
+    
+        margin-bottom: 2rem;
+
+        @media (max-width:1440px) {
+            font-size: 28px;
+        }
+        @media (max-width:1280px) {
+            font-size: 24px;
+        }
+        @media (max-width:991px) {
+            font-size: 20px;
+        }
+    }
+
+    h5 {
+        font-family: "Century Gothic";
+        font-weight: normal;
+        font-size: 24px;
+
+        margin-bottom: 2rem;
+
+        @media (max-width:1440px) {
+            font-size: 22px;
+        }
+        @media (max-width:1280px) {
+            font-size: 20px;
+        }
+        @media (max-width:991px) {
+            font-size: 18px;
+        }
+    }
+
+    p {
+        font-family: "Century Gothic";
+        font-weight: normal;
+        font-size: 20px;
+
+        @media (max-width:1440px) {
+            font-size: 19px;
+        }
+        @media (max-width:1280px) {
+            font-size: 18px;
+        }
+        @media (max-width:991px) {
+            font-size: 16px;
+        }
+    }
+
+    a {
+                        
+        padding-bottom: 2px;
+        
+        width: 100%;
+
+        text-decoration: none;
+        border-bottom: 2px solid #333;
+
+        color: #333;
+
+        transition: .2s ease;
+
+        font-family: 'Century Gothic';
+        font-weight: normal;
+
+        &:hover {
+            transition: .2s ease;
+
+            color: #34b46f;
+            
+            border-color: #34b46f;
+
+            
+        }
+
+
+        
+
+
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        @media (max-width:567px) {
+            flex-direction: column;
+            gap: 4rem;
+        }
+    }
+    
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        gap: 1rem;
+
+        @media (max-width:567px) {
+            gap: 3rem;
+        }
+
+        .video img {
+            width: 100%;
+        }
+
+        .flamp {
+            padding: 1.75rem;
+            border: 2px solid #efe4d9;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            @media (max-width:1440px) {
+                padding: 1rem;
+            }
+
+            img {
+                max-width: fit-content;
+                
+                @media (max-width:1199px) {
+                    width: 100%;
+                }
+            }
+
+            & > div {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1rem;
+                
+                @media (max-width:1199px) {
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    align-items: start;
+                
+                }
+                
+
+                p {
+                    margin-bottom: 0;
+                }
+
+                .link > a {
+                    line-height: 1.45;
+                    -moz-transform: scale(0.8, 1);
+                    -webkit-transform: scale(0.8, 1);
+                    -ms-transform: scale(0.8, 1);
+                }
+            }
+        }
+
+        .review {
+            position: relative;
+
+            & > img {
+                position: absolute;
+                left: -100px;
+                top: -25px;
+
+                @media (max-width:1919px) {
+                    left: 180px;
+                    top: -15px;
+                    
+                }
+                
+                @media (max-width:991px) {
+                    width: 35px;
+                    height: 35px;
+
+                    left: 130px;
+                    
+                }
+                
+            }
+        }
+
+    }
+    
+      
+    &__block {
+        padding: 2rem;
+        background-color: #efe4d9;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @media (max-width:567px) {
+            padding: 1rem;
+        }
+
+        .video img {
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+
+// секция с работамы на главной
+.works {
+    position: relative;
+
+    & > img {
+        position: absolute;
+        right: 0;
+
+        @media (max-width:767px) {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &__container {
+        
+        
+
+       
+
+        h2 {
+            font-family: "Century Gothic";
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+            @media (max-width:1440px) {
+                font-size: 36px;
+            }
+            @media (max-width:1280px) {
+                font-size: 32px;
+            }
+            @media (max-width:991px) {
+                font-size: 26px;
+            }
+        }
+        h3 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 34px;
+        
+            
+    
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+        }
+    
+        h5 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 24px;
+    
+            margin-bottom: 2rem;
+    
+            @media (max-width:1440px) {
+                font-size: 22px;
+            }
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+            @media (max-width:991px) {
+                font-size: 18px;
+            }
+        }
+    
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+    
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+        }
+
+        a {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+    
+            padding-right: 2px;
+            border-bottom: 2px solid #333;
+
+            text-decoration: none;
+
+            color: #333;
+
+            transition: .2s ease;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+            @media (max-width:767px) {
+                font-size: 14px 
+            }
+            @media (max-width:567px) {
+                font-size: 13px;
+            }
+            @media (max-width:410px) {
+                text-align: center;
+                width: 120px;
+                font-size: 14px;
+                
+            }
+
+            &:hover {
+                transition: .2s ease;
+                color: #333;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        
+        @media (max-width:567px) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        position: relative;        
+
+        h2 {
+            margin-bottom: 2rem;
+        }
+
+        
+    }
+
+    &__last {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        padding: 2rem;
+
+        border: 2px solid #ead5bf;
+
+        @media (max-width:991px) {
+            padding: 1rem;
+        }
+        @media (max-width:767px) {
+            gap: 1rem;
+        }
+
+        
+    }
+
+    
+}
+
+
+// стили плиток (галерея фото)
+.works__tiles {
+    max-width: 100%;
+   
+    column-count: 2;
+
+    .gallery-item {
+        figure {
+            position: relative;
+            overflow: hidden;
+            transition: .2s ease;
+
+            :hover img {
+                transition: .2s ease;
+                transform: scale(1.1); /* Увеличиваем изображение при наведении */
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+        }
+    }
+
+    & >.gallery-item:last-child {
+        figure {
+            figcaption {
+                margin-top: 4rem;
+                gap: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                @media (max-width:767px) {
+                    margin-top: 2rem;
+
+                    
+                }
+                @media (max-width:410px) {
+                    margin-top: 1rem;
+                    gap: .5rem;
+                }
+            }
+        }
+    }
+    
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    
+  }
+  .gallery-item p {
+    margin: 0;
+    padding: 8px;
+  }
+  
+  
+  
+
+
+
+// секция с картой 
+.map {
+    &__container {
+        h2 {
+
+            display: flex;
+            
+            align-items: center;
+
+            gap: 3rem;
+
+            font-family: "Century Gothic";
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+            @media (max-width:1440px) {
+                font-size: 36px;
+            }
+            @media (max-width:1280px) {
+                font-size: 32px;
+            }
+            @media (max-width:991px) {
+                font-size: 26px;
+            }
+            @media (max-width:567px) {
+                & > br {
+                    display: none;
+                }
+            }
+
+            span {
+                display: block;
+                width: 41.3%;
+                height: 1px;
+                background-color: #333;
+
+                flex: 1;
+
+                @media (max-width:467px) {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 150px;
+                height: 150px;
+                @media (max-width:767px) {
+                    width: 100px;
+                    height: 100px;
+                }
+                @media (max-width:467px) {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+        h3 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 34px;
+        
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+        }
+
+        h5 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 24px;
+
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 22px;
+            }
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+            @media (max-width:991px) {
+                font-size: 18px;
+            }
+        }
+
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        gap: 8rem;
+
+        @media (max-width:1440px) {
+            gap: 4rem;
+        }
+        @media (max-width:567px) {
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        position: relative;
+
+        width: 100%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -5;
+            width: 100%;
+            height: 100%;
+            left: 20px;
+            top: 20px;
+
+            border: 3px solid #efe4d9;;
+    
+            @media (max-width:567px) {
+                left: 0;
+            }
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+            @media (max-width:567px) {
+                aspect-ratio: 4/4;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            margin-bottom: 3rem;
+
+            li {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem
+                ;
+            }
+        }
+    }
+}
+
+
+// contacts секция
+.contacts {
+    &__container {
+        h2 {
+
+            position: relative;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 2rem;
+
+            margin-bottom: 4rem;
+
+            font-family: "Century Gothic";
+            font-weight: bold;
+            font-size: 42px;
+            color: #333;
+            @media (max-width:1440px) {
+                font-size: 36px;
+            }
+            @media (max-width:1280px) {
+                font-size: 32px;
+            }
+            @media (max-width:991px) {
+                font-size: 26px;
+            }
+
+            span {
+                display: flex;
+                
+                width: 100%;
+                height: 1px;
+                background-color: #333;
+                flex: 1;
+
+                @media (max-width:1199px) {
+                    display: none;
+                }
+            }
+
+            img {
+                
+            }
+        }
+        h3 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 34px;
+        
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 28px;
+            }
+            @media (max-width:1280px) {
+                font-size: 24px;
+            }
+            @media (max-width:991px) {
+                font-size: 20px;
+            }
+        }
+
+        h5 {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 24px;
+
+            margin-bottom: 2rem;
+
+            @media (max-width:1440px) {
+                font-size: 22px;
+            }
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+            @media (max-width:991px) {
+                font-size: 18px;
+            }
+        }
+
+        p {
+            font-family: "Century Gothic";
+            font-weight: normal;
+            font-size: 20px;
+
+            @media (max-width:1440px) {
+                font-size: 19px;
+            }
+            @media (max-width:1280px) {
+                font-size: 18px;
+            }
+            @media (max-width:991px) {
+                font-size: 16px;
+            }
+
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .telephone { 
+
+            font-family: 'Century Gothic';
+            font-weight: normal;
+            font-size: 24px;
+            color: #333;
+
+            position: relative;
+
+                    
+            border-bottom: none;
+            padding-bottom: 18px;
+
+            text-decoration: none;
+
+            transition: .2s ease;
+
+            &:hover {
+                transition: .2s ease;
+                color: #34b46f;
+            }
+
+            @media (max-width:1280px) {
+                font-size: 20px;
+            }
+
+            > span {
+                margin-left: 12px;
+                font-weight: bold;
+                font-size: 34px;
+
+                @media (max-width:1280px) {
+                    font-size: 24px;
+                    margin-left: 6px;
+                }
+
+                @media (max-width:767px) {
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 4rem;
+
+        @media (max-width:1440px) {
+            gap: 3rem;
+        }
+        @media (max-width:767px) {
+            flex-direction: column;
+        }
+        
+    }
+
+    
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width:767px) {
+            gap: 2rem;
+        }
+        
+
+        .cta-button {
+            margin: 1rem 0;
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 1rem;
+
+        @media (max-width:991px) {
+            flex-direction: column;
+        }
+
+        a {
+            padding-bottom: 2px;
+            width: 100%;
+            text-decoration: none;
+            border-bottom: 2px solid #333;
+            color: #333;
+            transition: 0.2s ease;
+            font-family: "Century Gothic";
+            font-weight: normal;
+
+            width: fit-content;
+
+            font-size: 18px;
+
+            &:hover {
+                transition: .2s ease;
+                color: #2eb446;
+                border-color: #2eb446;
+            }
+
+            @media (max-width:1440px) {
+                font-size: 16px;
+            }
+            
+        }
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+
+        gap: 2rem;
+
+        @media (max-width:567px) {
+            flex-direction: column;
+            gap: 0rem;
+            align-items: flex-start;
+        }
+
+        .telephone {
+            padding-bottom: .5rem;
+        }
+
+        p {
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__regime {
+        display: flex;
+        gap: 1rem;
+        
+        img {
+            width: 32px;
+            height: 32px;
+        }
+
+    }
+
+    &__map {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @media (max-width:1199px) {
+            width: 50%;
+        }
+        @media (max-width:767px) {
+            width: 100%;
+        }
+
+        img {
+            @media (max-width:767px) {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+// Divider секция с разделитеме
+.divider {
+    &__container {
+        & > img {
+            z-index: -5;
+            position: relative;
+            display: block;
+        }
+    }
+
+    
+}
+
+.work-status {
+    font-family: 'Century Gothic';
+    font-weight: normal;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+            
+    gap: 8px;
+
+        .status-dot {
+
+            display: flex;
+
+            width: 8px;
+            height: 8px;
+
+            
+            border-radius: 50%;
+
+        }
+}
